@@ -21,7 +21,7 @@ class CreatePagoEmpleadosTable extends Migration
             $table->string('descripcion');
             $table->timestamps();
 
-            $table->foreign('id_empleado_planilla')->references('id')->on('empleado_planilla')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_empleado_planilla')->references('id')->on('empleado_planillas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_deposito')->references('id')->on('depositos')->onUpdate('cascade')->onDelete('cascade');
         });
     }

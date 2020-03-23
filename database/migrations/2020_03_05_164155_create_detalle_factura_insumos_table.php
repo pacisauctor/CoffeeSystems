@@ -22,7 +22,7 @@ class CreateDetalleFacturaInsumosTable extends Migration
             $table->double('descuento');
             $table->timestamps();
 
-            $table->foreign('id_factura_insumo')->references('id')->on('factura_insumo')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_factura_insumo')->references('id')->on('factura_insumos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
