@@ -15,7 +15,20 @@ class CreateOrdensTable extends Migration
     {
         Schema::create('ordens', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_empleado');
+            $table->unsignedBigInteger('id_cliente');
+            $table->string('numero_factura');
+            $table->dateTime('fecha_orden');
+            $table->dateTime('fecha_requerida');
+            $table->dateTime('fecha_entrega');
+            $table->double('sub_total');
+            $table->double('iva');
+            $table->double('total');
             $table->timestamps();
+
+            $table->foreign('id_empleado')->references('id')->on('empleados')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_cliente')->references('id')->on('clientes')->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

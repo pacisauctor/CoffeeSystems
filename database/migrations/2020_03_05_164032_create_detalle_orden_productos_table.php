@@ -15,7 +15,15 @@ class CreateDetalleOrdenProductosTable extends Migration
     {
         Schema::create('detalle_orden_productos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_orden');
+            $table->unsignedBigInteger('id_producto');
+            $table->integer('cantidad');
+            $table->double('precio_unitario');
+            $table->double('descuento');
             $table->timestamps();
+
+            $table->foreign('id_orden')->references('id')->on('ordens')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_producto')->references('id')->on('productos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

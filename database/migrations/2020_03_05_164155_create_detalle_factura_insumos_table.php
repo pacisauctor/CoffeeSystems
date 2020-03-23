@@ -15,7 +15,14 @@ class CreateDetalleFacturaInsumosTable extends Migration
     {
         Schema::create('detalle_factura_insumos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_factura_insumo');
+            $table->unsignedBigInteger('id_insumo');
+            $table->integer('cantidad');
+            $table->double('precio');
+            $table->double('descuento');
             $table->timestamps();
+
+            $table->foreign('id_factura_insumo')->references('id')->on('factura_insumo')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

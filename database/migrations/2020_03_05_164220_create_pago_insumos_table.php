@@ -15,7 +15,13 @@ class CreatePagoInsumosTable extends Migration
     {
         Schema::create('pago_insumos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_deposito');
+            $table->unsignedBigInteger('id_factura_insumo');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_deposito')->references('id')->on('depositos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_factura_insumo')->references('id')->on('factura_insumos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

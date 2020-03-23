@@ -15,6 +15,11 @@ class CreatePersonaContactosTable extends Migration
     {
         Schema::create('persona_contactos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('telefono');
+            $table->string('correo');
+            $table->string('direccion');
             $table->timestamps();
         });
     }

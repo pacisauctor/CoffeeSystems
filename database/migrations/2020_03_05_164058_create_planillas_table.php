@@ -15,6 +15,9 @@ class CreatePlanillasTable extends Migration
     {
         Schema::create('planillas', function (Blueprint $table) {
             $table->id();
+            $table->string('numero_planilla');
+            $table->double('patronal');
+            $table->date('date');
             $table->timestamps();
         });
     }

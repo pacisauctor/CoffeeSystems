@@ -15,7 +15,13 @@ class CreatePagoMantenimientosTable extends Migration
     {
         Schema::create('pago_mantenimientos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_deposito');
+            $table->unsignedBigInteger('id_mantenimiento');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_deposito')->references('id')->on('depositos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_mantenimiento')->references('id')->on('mantenimientos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

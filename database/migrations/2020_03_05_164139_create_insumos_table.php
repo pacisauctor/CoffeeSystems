@@ -15,6 +15,9 @@ class CreateInsumosTable extends Migration
     {
         Schema::create('insumos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->integer('cantidad_inventario');
             $table->timestamps();
         });
     }

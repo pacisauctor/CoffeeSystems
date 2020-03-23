@@ -15,6 +15,11 @@ class CreateDepositosTable extends Migration
     {
         Schema::create('depositos', function (Blueprint $table) {
             $table->id();
+            $table->string('numero_comprobante');
+            $table->string('banco');
+            $table->double('monto');
+            $table->string('moneda');
+            $table->dateTime('fecha');
             $table->timestamps();
         });
     }
